@@ -49,3 +49,36 @@ and add a GUI.
     - [x] Play 5 rounds by calling `playRound` 5 times.
         > Hint: When you assign a function call to a variable, the return value of that function is assigned to the variable. Accessing the variable afterward will only provide the assigned value; it doesn’t recall the function. You need to recall the choice functions to get new choices for each round.
     - [x] Re-work your previous functions or create more helper functions if necessary. Specifically, you may want to change the return values to something more useful.
+
+## Add a User Interface (UI)
+
+In this step, the game will transition from a purely console-based experience to an interactive user interface. Players will be able to play the game by clicking buttons instead of using prompts.
+
+### Assignment
+
+1. **Create the UI structure**
+   - [ ] Remove the logic that plays exactly five rounds.
+   - [ ] Create three buttons in your HTML, one for each selection: "Rock", "Paper", and "Scissors".
+   - [ ] Add a `div` element to the HTML to display the results of each round.
+
+2. **Add interactivity to buttons**
+   - [ ] Add an event listener to each button that calls your `playRound` function with the correct `playerSelection` when clicked.
+       > Hint: You can pass the player's selection (`"rock"`, `"paper"`, or `"scissors"`) directly to the `playRound` function inside the event listener.
+
+3. **Refactor console logs**
+   - [ ] Change all `console.log` statements into DOM manipulation methods to display results in the new `div` element.
+       > Hint: Use methods like `textContent` or `innerHTML` to update the content of the `div`.
+
+4. **Implement the running score**
+   - [ ] Display the player's and computer's scores in the UI by updating another section of the HTML.
+   - [ ] Keep track of the scores as you did previously, but now update the displayed scores after each round.
+       > Hint: Create separate `div` or `span` elements to display the `humanScore` and `computerScore`, and update their values programmatically.
+
+5. **Announce the winner**
+   - [ ] Once one player reaches 5 points, stop the game and display a message announcing the winner.
+       > Hint: Add a conditional check inside your event listener to verify whether either score has reached 5 points. If true, disable further button clicks and display the winner.
+
+6. **Optional cleanup**
+   - [ ] Add a "Play Again" button to reset the game when the current game ends. 
+       - [ ] Reset both scores to 0.
+       - [ ] Clear the results and restart the game logic.
