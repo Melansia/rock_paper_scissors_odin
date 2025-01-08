@@ -40,3 +40,8 @@ button {
     border-radius: 4px;
 }
 
+.start-game {
+    background-color: rgb(132, 194, 202);
+    color: rgb(0, 0, 0);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
