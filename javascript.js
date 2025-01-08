@@ -81,7 +81,7 @@ function playGame() {
 
 function main() {
 
-    playGame()
+    // playGame()
 }
 
 main()
