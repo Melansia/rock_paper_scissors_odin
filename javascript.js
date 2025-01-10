@@ -3,9 +3,8 @@ let computerScore = 0
 
 const gameScore = document.querySelector(".game-status")
 const gameStatus = document.querySelector(".verdict")
-const gameButtons = document.querySelectorAll("button")
-
-// console.log(gameButtons)
+const gameButtons = document.querySelectorAll(".buttons button")
+const gameStartButton = document.querySelector(".start-game")
 
 function getComputerChoice() {
     const options = ["rock", "paper", "scissors"]
@@ -54,26 +53,37 @@ function gameFinished() {
 }
 
 function startGame() {
-    gameButtons.forEach((button) => { 
-        // if(button.hidden) {
-        //     button.hidden = false
-        // } else {
-        //     button.hidden = true
-        // }
+    gameStartButton.addEventListener("click", () => {
+        humanScore = 0
+        computerScore = 0
+        gameStatus.textContent = "Choose your weapon!"
+        gameScore.textContent = `You: ${humanScore}  |  Computer: ${computerScore}`
+        gameButtons.forEach((button) => { 
+            button.hidden = false
+        })
+        gameStartButton.setAttribute("hidden", true) 
     })
-
 }
+
+function endGameStats() {
+    if (humanScore > computerScore) {
+        gameStatus.textContent = "Hooray! You won!"
+    } else {
+        gameStatus.textContent = "Looks like Computer won this time."
+    }
+}
+
 
 function endGame() {
     console.log("Game Finished")
-    
+    gameButtons.forEach((button) => { 
+        button.hidden = true
+    })
+    gameStartButton.hidden = false
 }
 
 function playGame() {
-    startGame()
-    console.log("This game will have 5 rounds")
-    console.log("Let's start")
-    console.log(`Current score is: You - ${humanScore}     Computer - ${computerScore}`)
+    startGame() 
     gameButtons.forEach((button) => {
         button.addEventListener("click", () => {
             gameScore.textContent = `You: ${humanScore}  |  Computer: ${computerScore}`
@@ -82,6 +92,7 @@ function playGame() {
             playRound(humanChoice, computerChoice)
             gameScore.textContent = `You: ${humanScore}  |  Computer: ${computerScore}`
             if(gameFinished()) {
+                endGameStats()
                 endGame()
             }
         })
