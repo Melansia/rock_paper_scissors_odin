@@ -31,19 +31,13 @@ function playRound(humanChoice, computerChoice) {
 
     let whoWon = checkWin(humanChoice, computerChoice)
 
-    console.log(computerChoice)
-    console.log(humanChoice)
-
     if (whoWon === null ) {
         gameStatus.textContent = `It's a Draw.`
-        console.log("Draw")
     } else if (whoWon) {
         gameStatus.textContent = `Round Won! ${capitalize(humanChoice)} beats ${capitalize(computerChoice)}`
-        console.log(`Round Won! ${capitalize(humanChoice)} beats ${capitalize(computerChoice)}`)
         ++humanScore
     } else {
         gameStatus.textContent = `Round Lost! ${capitalize(computerChoice)} beats ${capitalize(humanChoice)}`
-        console.log(`Round Lost! ${capitalize(computerChoice)} beats ${capitalize(humanChoice)}`)
         ++computerScore
     }
 }
@@ -75,7 +69,6 @@ function endGameStats() {
 
 
 function endGame() {
-    console.log("Game Finished")
     gameButtons.forEach((button) => { 
         button.hidden = true
     })
