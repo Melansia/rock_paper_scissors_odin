@@ -3,6 +3,7 @@ body {
     overflow: hidden;
     background-color: rgb(70, 73, 109);
     color: beige;
+    font-size: 22px;
 }
 
 .main-container {
@@ -30,10 +31,12 @@ body {
 .buttons {
     display: flex;
     justify-content: space-between;
+    min-width: 500px;
 }
 
 button {
     border-radius: 4px;
+    font-size: larger;
 }
 
 .start-game {
